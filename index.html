@@ -384,9 +384,20 @@
   </div>
 
   <script>
-    // ── OPEN GAME — simple new tab, no fetch (fixes 404) ──
+    // ── OPEN GAME — about:blank trick (hides from history/filters) ──
     function openGame(file) {
-      window.open(file, '_blank');
+      var win = window.open('about:blank', '_blank');
+      fetch(file)
+        .then(function(r) { return r.text(); })
+        .then(function(html) {
+          win.document.open();
+          win.document.write(html);
+          win.document.close();
+        })
+        .catch(function() {
+          // fallback if fetch fails
+          win.location.href = file;
+        });
     }
 
     // ── CLOCK ──
