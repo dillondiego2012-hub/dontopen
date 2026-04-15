@@ -260,9 +260,14 @@
 
   <!-- TOP NAV -->
   <div id="top-nav">
-    <a id="request-link" href="https://docs.google.com/forms/d/e/1FAIpQLScW-1CMnwMleBO94TqVTRkmc8wrvblyNo9sDZ4zTHpFmFDDRg/viewform?usp=publish-editor" target="_blank">
-      📬 Request a Game
-    </a>
+    <div style="display:flex;gap:14px;align-items:center;">
+      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/forms/d/e/1FAIpQLScW-1CMnwMleBO94TqVTRkmc8wrvblyNo9sDZ4zTHpFmFDDRg/viewform?usp=publish-editor'); return false;">
+        📬 Request a Game
+      </a>
+      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/spreadsheets/d/1oStXh4au1sz7t9UIMb1C3eOGJwXkweBQ3pKVUgFaQuU/edit?usp=sharing'); return false;">
+        📋 Game Responses
+      </a>
+    </div>
     <div id="search-wrap">
       <div id="search-icon"></div>
       <input type="text" id="search-input" placeholder="Search games..." autocomplete="off">
@@ -357,6 +362,11 @@
     // ── OPEN GAME — about:blank trick ──
     function openGame(file) {
       var win = window.open('about:blank', '_blank');
+      // If it's a full URL (like google docs), just navigate to it
+      if (file.startsWith('http')) {
+        win.location.href = file;
+        return;
+      }
       fetch(file)
         .then(function(r) { return r.text(); })
         .then(function(html) {
