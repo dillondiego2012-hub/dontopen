@@ -24,12 +24,7 @@
       overflow-x: hidden;
       background: #0a0015;
     }
-    #galaxy {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
+    #galaxy { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
     #galaxy::before {
       content: '';
       position: absolute;
@@ -53,43 +48,32 @@
     }
     @keyframes nebulaPulse { 0% { opacity: 0.7; } 100% { opacity: 1; } }
     .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
+      position: absolute; width: 2px; height: 2px;
+      background: white; border-radius: 50%;
       animation: twinkle 3s infinite alternate;
     }
     @keyframes twinkle { from { opacity: 0.3; } to { opacity: 1; } }
 
     /* TOP NAV */
     #top-nav {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 36px 0;
-      width: 100%;
+      position: relative; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 36px 0; width: 100%;
     }
-    #request-link {
-      font-size: 20px;
-      font-weight: bold;
-      color: #d4aaff;
+    .nav-btn {
+      font-size: 20px; font-weight: bold; color: #d4aaff;
       text-decoration: none;
       background: rgba(120,0,255,0.18);
       border: 2px solid rgba(180,100,255,0.45);
-      border-radius: 30px;
-      padding: 14px 28px;
-      transition: 0.25s;
-      white-space: nowrap;
+      border-radius: 30px; padding: 14px 28px;
+      transition: 0.25s; white-space: nowrap;
       backdrop-filter: blur(8px);
       text-shadow: 0 0 10px rgba(180,100,255,0.6);
+      cursor: pointer;
     }
-    #request-link:hover {
+    .nav-btn:hover {
       background: rgba(120,0,255,0.35);
-      border-color: rgba(200,150,255,0.8);
-      color: #fff;
+      border-color: rgba(200,150,255,0.8); color: #fff;
       box-shadow: 0 0 20px rgba(160,80,255,0.5);
       transform: scale(1.05);
     }
@@ -97,20 +81,14 @@
     #search-input {
       background: rgba(255,255,255,0.08);
       border: 2px solid rgba(180,100,255,0.45);
-      border-radius: 30px;
-      color: #fff;
-      font-size: 20px;
-      font-weight: bold;
-      padding: 14px 28px;
-      width: 300px;
-      outline: none;
-      transition: 0.3s;
-      backdrop-filter: blur(8px);
+      border-radius: 30px; color: #fff;
+      font-size: 20px; font-weight: bold;
+      padding: 14px 28px; width: 300px;
+      outline: none; transition: 0.3s; backdrop-filter: blur(8px);
     }
     #search-input::placeholder { color: rgba(255,255,255,0.4); font-weight: normal; }
     #search-input:focus {
-      width: 360px;
-      border-color: rgba(200,150,255,0.8);
+      width: 360px; border-color: rgba(200,150,255,0.8);
       background: rgba(255,255,255,0.12);
       box-shadow: 0 0 20px rgba(160,80,255,0.4);
     }
@@ -118,64 +96,47 @@
     /* HEADER */
     #header { position: relative; z-index: 10; margin-top: 20px; }
     #save-reminder {
-      font-size: 40px;
-      margin-bottom: 6px;
+      font-size: 40px; margin-bottom: 6px;
       color: rgba(255,255,255,0.75);
       text-shadow: 0 0 15px rgba(180,100,255,0.5), 0 2px 6px rgba(0,0,0,0.8);
       letter-spacing: 1px;
     }
     h1 {
-      font-size: 52px;
-      margin: 0 0 10px;
+      font-size: 52px; margin: 0 0 10px;
       text-shadow: 0 0 30px rgba(180,100,255,0.7), 0 2px 8px rgba(0,0,0,0.9);
-      cursor: pointer;
-      user-select: none;
-      transition: text-shadow 0.2s, transform 0.2s;
-      display: inline-block;
+      cursor: pointer; user-select: none;
+      transition: text-shadow 0.2s, transform 0.2s; display: inline-block;
     }
     h1:hover {
       text-shadow: 0 0 50px rgba(220,160,255,1), 0 2px 8px rgba(0,0,0,0.9);
       transform: scale(1.04);
     }
     #clock {
-      font-size: 40px;
-      margin-bottom: 10px;
+      font-size: 40px; margin-bottom: 10px;
       text-shadow: 0 0 15px rgba(180,100,255,0.5), 0 2px 6px rgba(0,0,0,0.8);
     }
     #game-count {
-      font-size: 14px;
-      color: rgba(200,170,255,0.5);
-      letter-spacing: 3px;
-      margin-bottom: 20px;
+      font-size: 14px; color: rgba(200,170,255,0.5);
+      letter-spacing: 3px; margin-bottom: 20px;
     }
 
-    /* DUCKDUCKGO SEARCH BAR */
+    /* WEB SEARCH BAR */
     #ddg-section {
-      position: relative;
-      z-index: 10;
-      margin: 0 auto 36px;
-      max-width: 620px;
-      padding: 0 24px;
+      position: relative; z-index: 10;
+      margin: 0 auto 36px; max-width: 620px; padding: 0 24px;
     }
     #ddg-label {
-      font-size: 13px;
-      letter-spacing: 3px;
-      color: rgba(200,170,255,0.5);
-      margin-bottom: 12px;
-      text-transform: uppercase;
+      font-size: 13px; letter-spacing: 3px;
+      color: rgba(200,170,255,0.5); margin-bottom: 12px; text-transform: uppercase;
     }
     #ddg-form { display: flex; gap: 10px; align-items: center; }
     #ddg-input {
       flex: 1;
       background: rgba(255,255,255,0.08);
       border: 2px solid rgba(180,100,255,0.45);
-      border-radius: 30px;
-      color: #fff;
-      font-size: 18px;
-      padding: 14px 24px;
-      outline: none;
-      transition: 0.3s;
-      backdrop-filter: blur(8px);
+      border-radius: 30px; color: #fff;
+      font-size: 18px; padding: 14px 24px;
+      outline: none; transition: 0.3s; backdrop-filter: blur(8px);
     }
     #ddg-input::placeholder { color: rgba(255,255,255,0.35); }
     #ddg-input:focus {
@@ -186,61 +147,39 @@
     #ddg-btn {
       background: rgba(120,0,255,0.3);
       border: 2px solid rgba(180,100,255,0.55);
-      border-radius: 30px;
-      color: #d4aaff;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 14px 24px;
-      cursor: pointer;
-      transition: 0.25s;
-      white-space: nowrap;
-      backdrop-filter: blur(8px);
+      border-radius: 30px; color: #d4aaff;
+      font-size: 18px; font-weight: bold;
+      padding: 14px 24px; cursor: pointer;
+      transition: 0.25s; white-space: nowrap; backdrop-filter: blur(8px);
     }
     #ddg-btn:hover {
       background: rgba(120,0,255,0.5);
-      border-color: rgba(200,150,255,0.9);
-      color: #fff;
-      box-shadow: 0 0 20px rgba(160,80,255,0.5);
-      transform: scale(1.05);
+      border-color: rgba(200,150,255,0.9); color: #fff;
+      box-shadow: 0 0 20px rgba(160,80,255,0.5); transform: scale(1.05);
     }
 
     /* GAMES GRID */
     .games-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 0 24px 70px;
-      position: relative;
-      z-index: 10;
-      max-width: 1400px;
-      margin: 0 auto;
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 20px; padding: 0 24px 70px;
+      position: relative; z-index: 10;
+      max-width: 1400px; margin: 0 auto;
     }
     .game-card.hidden { display: none; }
     .game-btn {
-      padding: 22px 70px;
-      font-size: 28px;
-      border: none;
-      border-radius: 15px;
-      background: #1e293b;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
-      transition: 0.3s;
-      white-space: nowrap;
+      padding: 22px 70px; font-size: 28px; border: none;
+      border-radius: 15px; background: #1e293b; color: white;
+      cursor: pointer; box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      transition: 0.3s; white-space: nowrap;
     }
     .game-btn:hover {
-      background: #334155;
-      transform: scale(1.12);
+      background: #334155; transform: scale(1.12);
       box-shadow: 0 0 30px rgba(255,255,255,0.6);
     }
     #no-results {
-      display: none;
-      font-size: 24px;
-      color: rgba(255,255,255,0.4);
-      margin: 70px 0;
-      position: relative;
-      z-index: 10;
+      display: none; font-size: 24px;
+      color: rgba(255,255,255,0.4); margin: 70px 0;
+      position: relative; z-index: 10;
     }
   </style>
 </head>
@@ -251,8 +190,8 @@
   <!-- TOP NAV -->
   <div id="top-nav">
     <div style="display:flex;gap:14px;align-items:center;">
-      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/forms/d/e/1FAIpQLSc0wJjFKWJRE928DVr3Pj-RWPKy-75QgNIjFQIMUyQ76MGzLQ/viewform?usp=dialog'); return false;">📬 Request Games</a>
-      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/spreadsheets/d/1c08AajavNjkT8PnXe4whIE6DuXj6iXmi6Wzkn1tJ-E0/edit?usp=sharing'); return false;">📋 Game Responses</a>
+      <a class="nav-btn" href="#" onclick="openGame('https://docs.google.com/forms/d/e/1FAIpQLSc0wJjFKWJRE928DVr3Pj-RWPKy-75QgNIjFQIMUyQ76MGzLQ/viewform?usp=dialog'); return false;">📬 Request Games</a>
+      <a class="nav-btn" href="#" onclick="openGame('https://docs.google.com/spreadsheets/d/1c08AajavNjkT8PnXe4whIE6DuXj6iXmi6Wzkn1tJ-E0/edit?usp=sharing'); return false;">📋 Game Responses</a>
     </div>
     <div id="search-wrap">
       <input type="text" id="search-input" placeholder="🔍 Search games..." autocomplete="off">
@@ -267,12 +206,12 @@
     <div id="game-count"></div>
   </div>
 
-  <!-- DUCKDUCKGO SEARCH -->
+  <!-- WEB SEARCH -->
   <div id="ddg-section">
-    <div id="ddg-label">🦆 DuckDuckGo Search</div>
+    <div id="ddg-label">🔍 Web Search</div>
     <div id="ddg-form">
-      <input type="text" id="ddg-input" placeholder="Search the web privately..." autocomplete="off">
-      <button id="ddg-btn" onclick="duckSearch()">🔍 Search</button>
+      <input type="text" id="ddg-input" placeholder="Search the web..." autocomplete="off">
+      <button id="ddg-btn" onclick="webSearch()">Search</button>
     </div>
   </div>
 
@@ -353,24 +292,43 @@
     }
     generateStars();
 
-    // DUCKDUCKGO — opens via about:blank trick, URL bar shows "about:blank"
-    function duckSearch() {
+    // WEB SEARCH — opens in about:blank tab with fullscreen iframe
+    // Tries Brave first, falls back to Bing if blocked
+    function webSearch() {
       var q = document.getElementById('ddg-input').value.trim();
       if (!q) return;
+      var engines = [
+        'https://search.brave.com/search?q=' + encodeURIComponent(q),
+        'https://www.bing.com/search?q=' + encodeURIComponent(q),
+        'https://search.yahoo.com/search?p=' + encodeURIComponent(q)
+      ];
+      var url = engines[0];
       var win = window.open('about:blank', '_blank');
-      var url = 'https://duckduckgo.com/?q=' + encodeURIComponent(q) + '&kae=d&k1=-1';
       win.document.open();
       win.document.write(
         '<!DOCTYPE html><html><head>' +
-        '<style>*{margin:0;padding:0;}iframe{width:100vw;height:100vh;border:none;}</style>' +
+        '<style>*{margin:0;padding:0;background:#000;}' +
+        'body{display:flex;flex-direction:column;height:100vh;}' +
+        '.bar{background:#1a0030;padding:8px 12px;display:flex;gap:8px;align-items:center;flex-shrink:0;}' +
+        '.bar button{background:rgba(180,100,255,0.3);border:1px solid rgba(180,100,255,0.5);' +
+        'color:#d4aaff;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:13px;}' +
+        '.bar button:hover{background:rgba(180,100,255,0.6);}' +
+        '.bar span{color:rgba(255,255,255,0.4);font-size:12px;font-family:Arial;}' +
+        'iframe{flex:1;border:none;width:100%;}</style>' +
         '</head><body>' +
-        '<iframe src="' + url + '" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>' +
+        '<div class="bar">' +
+        '<button onclick="document.getElementById(\'f\').src=\'https://search.brave.com/search?q=' + encodeURIComponent(q) + '\'">Brave</button>' +
+        '<button onclick="document.getElementById(\'f\').src=\'https://www.bing.com/search?q=' + encodeURIComponent(q) + '\'">Bing</button>' +
+        '<button onclick="document.getElementById(\'f\').src=\'https://search.yahoo.com/search?p=' + encodeURIComponent(q) + '\'">Yahoo</button>' +
+        '<span>If one is blocked, try another ↑</span>' +
+        '</div>' +
+        '<iframe id="f" src="' + url + '" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation"></iframe>' +
         '</body></html>'
       );
       win.document.close();
     }
     document.getElementById('ddg-input').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') duckSearch();
+      if (e.key === 'Enter') webSearch();
     });
 
     // OPEN GAME
