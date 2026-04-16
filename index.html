@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0H7S7TJBPK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -17,7 +16,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: Arial, sans-serif;
       color: white;
@@ -26,7 +24,6 @@
       overflow-x: hidden;
       background: #0a0015;
     }
-
     #galaxy {
       position: fixed;
       inset: 0;
@@ -54,10 +51,7 @@
         radial-gradient(ellipse 30% 40% at 30% 80%, rgba(80,0,180,0.15) 0%, transparent 70%);
       animation: nebulaPulse 12s ease-in-out infinite alternate;
     }
-    @keyframes nebulaPulse {
-      0%   { opacity: 0.7; }
-      100% { opacity: 1; }
-    }
+    @keyframes nebulaPulse { 0% { opacity: 0.7; } 100% { opacity: 1; } }
     .star {
       position: absolute;
       width: 2px;
@@ -66,12 +60,9 @@
       border-radius: 50%;
       animation: twinkle 3s infinite alternate;
     }
-    @keyframes twinkle {
-      from { opacity: 0.3; }
-      to   { opacity: 1; }
-    }
+    @keyframes twinkle { from { opacity: 0.3; } to { opacity: 1; } }
 
-    /* ═══ TOP NAV ═══ */
+    /* TOP NAV */
     #top-nav {
       position: relative;
       z-index: 10;
@@ -102,11 +93,7 @@
       box-shadow: 0 0 20px rgba(160,80,255,0.5);
       transform: scale(1.05);
     }
-    #search-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
+    #search-wrap { position: relative; display: flex; align-items: center; }
     #search-input {
       background: rgba(255,255,255,0.08);
       border: 2px solid rgba(180,100,255,0.45);
@@ -120,10 +107,7 @@
       transition: 0.3s;
       backdrop-filter: blur(8px);
     }
-    #search-input::placeholder {
-      color: rgba(255,255,255,0.4);
-      font-weight: normal;
-    }
+    #search-input::placeholder { color: rgba(255,255,255,0.4); font-weight: normal; }
     #search-input:focus {
       width: 360px;
       border-color: rgba(200,150,255,0.8);
@@ -131,12 +115,8 @@
       box-shadow: 0 0 20px rgba(160,80,255,0.4);
     }
 
-    /* ═══ HEADER ═══ */
-    #header {
-      position: relative;
-      z-index: 10;
-      margin-top: 20px;
-    }
+    /* HEADER */
+    #header { position: relative; z-index: 10; margin-top: 20px; }
     #save-reminder {
       font-size: 40px;
       margin-bottom: 6px;
@@ -169,7 +149,7 @@
       margin-bottom: 20px;
     }
 
-    /* ═══ DUCKDUCKGO SEARCH ═══ */
+    /* DUCKDUCKGO SEARCH BAR */
     #ddg-section {
       position: relative;
       z-index: 10;
@@ -184,11 +164,7 @@
       margin-bottom: 12px;
       text-transform: uppercase;
     }
-    #ddg-form {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
+    #ddg-form { display: flex; gap: 10px; align-items: center; }
     #ddg-input {
       flex: 1;
       background: rgba(255,255,255,0.08);
@@ -201,9 +177,7 @@
       transition: 0.3s;
       backdrop-filter: blur(8px);
     }
-    #ddg-input::placeholder {
-      color: rgba(255,255,255,0.35);
-    }
+    #ddg-input::placeholder { color: rgba(255,255,255,0.35); }
     #ddg-input:focus {
       border-color: rgba(200,150,255,0.8);
       background: rgba(255,255,255,0.12);
@@ -230,7 +204,7 @@
       transform: scale(1.05);
     }
 
-    /* ═══ GAMES GRID ═══ */
+    /* GAMES GRID */
     .games-grid {
       display: flex;
       flex-wrap: wrap;
@@ -277,12 +251,8 @@
   <!-- TOP NAV -->
   <div id="top-nav">
     <div style="display:flex;gap:14px;align-items:center;">
-      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/forms/d/e/1FAIpQLSc0wJjFKWJRE928DVr3Pj-RWPKy-75QgNIjFQIMUyQ76MGzLQ/viewform?usp=dialog'); return false;">
-        📬 Request Games
-      </a>
-      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/spreadsheets/d/1c08AajavNjkT8PnXe4whIE6DuXj6iXmi6Wzkn1tJ-E0/edit?usp=sharing'); return false;">
-        📋 Game Responses
-      </a>
+      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/forms/d/e/1FAIpQLSc0wJjFKWJRE928DVr3Pj-RWPKy-75QgNIjFQIMUyQ76MGzLQ/viewform?usp=dialog'); return false;">📬 Request Games</a>
+      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/spreadsheets/d/1c08AajavNjkT8PnXe4whIE6DuXj6iXmi6Wzkn1tJ-E0/edit?usp=sharing'); return false;">📋 Game Responses</a>
     </div>
     <div id="search-wrap">
       <input type="text" id="search-input" placeholder="🔍 Search games..." autocomplete="off">
@@ -369,7 +339,7 @@
   </div>
 
   <script>
-    // ── STARS ──
+    // STARS
     function generateStars() {
       var galaxy = document.getElementById('galaxy');
       for (var i = 0; i < 150; i++) {
@@ -383,24 +353,30 @@
     }
     generateStars();
 
-    // ── DUCKDUCKGO SEARCH ──
+    // DUCKDUCKGO — opens via about:blank trick, URL bar shows "about:blank"
     function duckSearch() {
       var q = document.getElementById('ddg-input').value.trim();
       if (!q) return;
       var win = window.open('about:blank', '_blank');
-      win.location.href = 'https://duckduckgo.com/?q=' + encodeURIComponent(q);
+      var url = 'https://duckduckgo.com/?q=' + encodeURIComponent(q) + '&kae=d&k1=-1';
+      win.document.open();
+      win.document.write(
+        '<!DOCTYPE html><html><head>' +
+        '<style>*{margin:0;padding:0;}iframe{width:100vw;height:100vh;border:none;}</style>' +
+        '</head><body>' +
+        '<iframe src="' + url + '" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>' +
+        '</body></html>'
+      );
+      win.document.close();
     }
     document.getElementById('ddg-input').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') duckSearch();
     });
 
-    // ── OPEN GAME ──
+    // OPEN GAME
     function openGame(file) {
       var win = window.open('about:blank', '_blank');
-      if (file.startsWith('http')) {
-        win.location.href = file;
-        return;
-      }
+      if (file.startsWith('http')) { win.location.href = file; return; }
       fetch(file)
         .then(function(r) { return r.text(); })
         .then(function(html) {
@@ -408,24 +384,19 @@
           win.document.write(html);
           win.document.close();
         })
-        .catch(function() {
-          win.location.href = file;
-        });
+        .catch(function() { win.location.href = file; });
     }
 
-    // ── HOME BUTTON ──
+    // HOME
     function goHome() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.getElementById('search-input').value = '';
-      document.querySelectorAll('.game-card').forEach(function(c) {
-        c.classList.remove('hidden');
-      });
-      document.getElementById('game-count').textContent =
-        document.querySelectorAll('.game-card').length + ' GAMES';
+      document.querySelectorAll('.game-card').forEach(function(c) { c.classList.remove('hidden'); });
+      document.getElementById('game-count').textContent = document.querySelectorAll('.game-card').length + ' GAMES';
       document.getElementById('no-results').style.display = 'none';
     }
 
-    // ── CLOCK ──
+    // CLOCK
     function updateClock() {
       var now = new Date();
       var h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
@@ -437,15 +408,13 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // ── BACK BUTTON RELOAD ──
     window.onpageshow = function(e) { if (e.persisted) window.location.reload(); };
 
-    // ── GAME SEARCH ──
+    // GAME SEARCH
     var cards = document.querySelectorAll('.game-card');
     var countEl = document.getElementById('game-count');
     var noResults = document.getElementById('no-results');
     countEl.textContent = cards.length + ' GAMES';
-
     document.getElementById('search-input').addEventListener('input', function() {
       var q = this.value.trim().toLowerCase();
       var visible = 0;
@@ -455,9 +424,7 @@
         if (match) visible++;
       });
       noResults.style.display = visible === 0 ? 'block' : 'none';
-      countEl.textContent = q
-        ? visible + ' GAME' + (visible !== 1 ? 'S' : '') + ' FOUND'
-        : cards.length + ' GAMES';
+      countEl.textContent = q ? visible + ' GAME' + (visible !== 1 ? 'S' : '') + ' FOUND' : cards.length + ' GAMES';
     });
   </script>
 </body>
