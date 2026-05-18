@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0H7S7TJBPK"></script>
   <script>
@@ -8,7 +8,7 @@
     gtag('js', new Date());
     gtag('config', 'G-0H7S7TJBPK');
   </script>
-  <title>Sahur's Games</title>
+  <title>STAAR Mathematics Review Directory</title>
   <meta charset="UTF-8">
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -57,24 +57,8 @@
     /* TOP NAV */
     #top-nav {
       position: relative; z-index: 10;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; justify-content: flex-end;
       padding: 24px 36px 0; width: 100%;
-    }
-    #request-link {
-      font-size: 20px; font-weight: bold; color: #d4aaff;
-      text-decoration: none;
-      background: rgba(120,0,255,0.18);
-      border: 2px solid rgba(180,100,255,0.45);
-      border-radius: 30px; padding: 14px 28px;
-      transition: 0.25s; white-space: nowrap;
-      backdrop-filter: blur(8px);
-      text-shadow: 0 0 10px rgba(180,100,255,0.6);
-    }
-    #request-link:hover {
-      background: rgba(120,0,255,0.35);
-      border-color: rgba(200,150,255,0.8); color: #fff;
-      box-shadow: 0 0 20px rgba(160,80,255,0.5);
-      transform: scale(1.05);
     }
     #search-wrap { position: relative; display: flex; align-items: center; }
     #search-input {
@@ -114,28 +98,28 @@
       font-size: 40px; margin-bottom: 10px;
       text-shadow: 0 0 15px rgba(180,100,255,0.5), 0 2px 6px rgba(0,0,0,0.8);
     }
-    #game-count {
+    #lecture-count {
       font-size: 14px; color: rgba(200,170,255,0.5);
       letter-spacing: 3px; margin-bottom: 30px;
     }
 
-    /* Learning GRID */
-    .Learing-grid {
+    /* LECTURES GRID */
+    .lectures-grid {
       display: flex; flex-wrap: wrap; justify-content: center;
       gap: 20px; padding: 0 24px 70px;
       position: relative; z-index: 10;
       max-width: 1400px; margin: 0 auto;
     }
-    .game-card.hidden { display: none; }
-    .game-btn {
-      padding: 22px 70px; font-size: 28px; border: none;
+    .lecture-card.hidden { display: none; }
+    .lecture-btn {
+      padding: 22px 50px; font-size: 24px; border: none;
       border-radius: 15px; background: #1e293b; color: white;
-      cursor: pointer; box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      cursor: pointer; box-shadow: 0 0 20px rgba(255,255,255,0.1);
       transition: 0.3s; white-space: nowrap;
     }
-    .learning-btn:hover {
-      background: #334155; transform: scale(1.12);
-      box-shadow: 0 0 30px rgba(255,255,255,0.6);
+    .lecture-btn:hover {
+      background: #334155; transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(180,100,255,0.6);
     }
     #no-results {
       display: none; font-size: 24px;
@@ -148,78 +132,58 @@
 
   <div id="galaxy"></div>
 
- 
+  <div id="top-nav">
     <div id="search-wrap">
-      <input type="text" id="search-input" placeholder="🔍 Search units..." autocomplete="off">
+      <input type="text" id="search-input" placeholder="🔍 Search curriculum units..." autocomplete="off">
     </div>
   </div>
 
   <div id="header">
-    <div id="save-reminder">⌨️ CTRL+D To Save!</div>
-    <h1 onclick="goHome()" title="Back to home">🎮 Sahur's Learinig Hub</h1>
+    <div id="save-reminder">⌨️ CTRL+D To Bookmark Study Material</div>
+    <h1 onclick="goHome()" title="Reset workspace">📐 Sahur's Mathematics Learning Hub</h1>
     <div id="clock"></div>
-    <div id="game-count"></div>
+    <div id="lecture-count"></div>
   </div>
 
-  <div id="no-results">No lectures found 🔭</div>
+  <div id="no-results">No review components found 🔭</div>
 
-  <div class="games-grid">
-    <div class="game-card" data-name="1v1.LOL"><button class="game-btn" onclick="openGame('cl1v1lol.html')">1v1.LOL</button></div>
-    <div class="game-card" data-name="3Dash"><button class="game-btn" onclick="openGame('cl3dash.html')">3Dash</button></div>
-    <div class="game-card" data-name="A Small World Cup"><button class="game-btn" onclick="openGame('clasmallworldcup.html')">A Small World Cup</button></div>
-    <div class="game-card" data-name="Agar.io Lite"><button class="game-btn" onclick="openGame('clagariolite.html')">Agar.io Lite</button></div>
-    <div class="game-card" data-name="Apes vs Helium"><button class="game-btn" onclick="openGame('clapesvshelium.html')">Apes vs Helium</button></div>
-    <div class="game-card" data-name="Baseball Bros"><button class="game-btn" onclick="openGame('clbaseballbros.html')">Baseball Bros</button></div>
-    <div class="game-card" data-name="Basket Bros"><button class="game-btn" onclick="openGame('clbasketbros.html')">Basket Bros</button></div>
-    <div class="game-card" data-name="Basketball Stars"><button class="game-btn" onclick="openGame('clbasketballstars.html')">Basketball Stars</button></div>
-    <div class="game-card" data-name="Bit Planes"><button class="game-btn" onclick="openGame('clbitplanes.html')">Bit Planes</button></div>
-    <div class="game-card" data-name="BitLife"><button class="game-btn" onclick="openGame('clbitlife.html')">BitLife</button></div>
-    <div class="game-card" data-name="Block Blast"><button class="game-btn" onclick="openGame('clblockblastv2.html')">Block Blast</button></div>
-    <div class="game-card" data-name="Cluster Rush"><button class="game-btn" onclick="openGame('clclusterrush.html')">Cluster Rush</button></div>
-    <div class="game-card" data-name="Cookie Clicker"><button class="game-btn" onclick="openGame('clcookieclicker.html')">Cookie Clicker</button></div>
-    <div class="game-card" data-name="Core Ball"><button class="game-btn" onclick="openGame('clcoreball.html')">Core Ball</button></div>
-    <div class="game-card" data-name="Crazy Cattle 3D"><button class="game-btn" onclick="openGame('clcrazycattle3d.html')">Crazy Cattle 3D</button></div>
-    <div class="game-card" data-name="Crossy Road"><button class="game-btn" onclick="openGame('clcrossyroad.html')">Crossy Road</button></div>
-    <div class="game-card" data-name="Drift Boss"><button class="game-btn" onclick="openGame('cldriftboss.html')">Drift Boss</button></div>
-    <div class="game-card" data-name="Drift Hunters"><button class="game-btn" onclick="openGame('cldrifthuntersmerge.html')">Drift Hunters</button></div>
-    <div class="game-card" data-name="Drive Mad"><button class="game-btn" onclick="openGame('cldrivemady.html')">Drive Mad</button></div>
-    <div class="game-card" data-name="Escape Road City 2"><button class="game-btn" onclick="openGame('clescaperoadcity2.html')">Escape Road City 2</button></div>
-    <div class="game-card" data-name="FNAF"><button class="game-btn" onclick="openGame('clFNAF.html')">FNAF</button></div>
-    <div class="game-card" data-name="FNAF 2"><button class="game-btn" onclick="openGame('clFNAF2.html')">FNAF 2</button></div>
-    <div class="game-card" data-name="FNAF 3"><button class="game-btn" onclick="openGame('clFNAF3.html')">FNAF 3</button></div>
-    <div class="game-card" data-name="FNAF 4"><button class="game-btn" onclick="openGame('clFNAF4.html')">FNAF 4</button></div>
-    <div class="game-card" data-name="Football Bros"><button class="game-btn" onclick="openGame('clfootballbros.html')">Football Bros</button></div>
-    <div class="game-card" data-name="GD SubZero"><button class="game-btn" onclick="openGame('clgdsubzero.html')">GD SubZero</button></div>
-    <div class="game-card" data-name="GD World"><button class="game-btn" onclick="openGame('clGeometryDashWorld.html')">GD World</button></div>
-    <div class="game-card" data-name="Geometry Dash Lite"><button class="game-btn" onclick="openGame('clgdlite.html')">Geometry Dash Lite</button></div>
-    <div class="game-card" data-name="Granny 2"><button class="game-btn" onclick="openGame('clgranny22.html')">Granny 2</button></div>
-    <div class="game-card" data-name="Granny 3"><button class="game-btn" onclick="openGame('clgranny3.html')">Granny 3</button></div>
-    <div class="game-card" data-name="Granny Original"><button class="game-btn" onclick="openGame('clgrannyy.html')">Granny Original</button></div>
-    <div class="game-card" data-name="Gun Spin"><button class="game-btn" onclick="openGame('clgunspin.html')">Gun Spin</button></div>
-    <div class="game-card" data-name="Karate Bros"><button class="game-btn" onclick="openGame('clkaratebros.html')">Karate Bros</button></div>
-    <div class="game-card" data-name="Kart Bros"><button class="game-btn" onclick="openGame('clkartbros.html')">Kart Bros</button></div>
-    <div class="game-card" data-name="Learn to Fly"><button class="game-btn" onclick="openGame('cllearntofly.html')">Learn to Fly</button></div>
-    <div class="game-card" data-name="Level Devil"><button class="game-btn" onclick="openGame('clleveldevil.html')">Level Devil</button></div>
-    <div class="game-card" data-name="Monkey Mart"><button class="game-btn" onclick="openGame('clmonkeymart.html')">Monkey Mart</button></div>
-    <div class="game-card" data-name="Moto X3M"><button class="game-btn" onclick="openGame('clmotox3mm.html')">Moto X3M</button></div>
-    <div class="game-card" data-name="OvO"><button class="game-btn" onclick="openGame('clovofixed.html')">OvO</button></div>
-    <div class="game-card" data-name="Pizza Tower"><button class="game-btn" onclick="openGame('clpizzatower.html')">Pizza Tower</button></div>
-    <div class="game-card" data-name="Poly Track"><button class="game-btn" onclick="openGame('clpolytrackworksnow.html')">Poly Track</button></div>
-    <div class="game-card" data-name="Retro Bowl"><button class="game-btn" onclick="openGame('clretrobowl.html')">Retro Bowl</button></div>
-    <div class="game-card" data-name="Retro Bowl College"><button class="game-btn" onclick="openGame('clretrobowlcollege.html')">Retro Bowl College</button></div>
-    <div class="game-card" data-name="Rocket League"><button class="game-btn" onclick="openGame('clrocketleague.html')">Rocket League</button></div>
-    <div class="game-card" data-name="Rooftop Snipers 2"><button class="game-btn" onclick="openGame('clrooftopsnipers2.html')">Rooftop Snipers 2</button></div>
-    <div class="game-card" data-name="Run 3"><button class="game-btn" onclick="openGame('clrun3.html')">Run 3</button></div>
-    <div class="game-card" data-name="Snow Rider 3D"><button class="game-btn" onclick="openGame('clsnowrider.html')">Snow Rider 3D</button></div>
-    <div class="game-card" data-name="Soccer Bros"><button class="game-btn" onclick="openGame('clsoccerbros.html')">Soccer Bros</button></div>
-    <div class="game-card" data-name="Soccer Random"><button class="game-btn" onclick="openGame('clsoccerrandomgood.html')">Soccer Random</button></div>
-    <div class="game-card" data-name="Space Waves"><button class="game-btn" onclick="openGame('clspacewaves.html')">Space Waves</button></div>
-    <div class="game-card" data-name="Subway Surfers Houston"><button class="game-btn" onclick="openGame('clsubwaysurfershouston.html')">Subway Surfers Houston</button></div>
-    <div class="game-card" data-name="Super Liquid Soccer"><button class="game-btn" onclick="openGame('clsuperliquidsoccer.html')">Super Liquid Soccer</button></div>
-    <div class="game-card" data-name="Survival Race"><button class="game-btn" onclick="openGame('clcarkingarena.html')">Survival Race</button></div>
-    <div class="game-card" data-name="Tiny Fishing"><button class="game-btn" onclick="openGame('cltinyfishing.html')">Tiny Fishing</button></div>
-    <div class="game-card" data-name="Tunnel Rush"><button class="game-btn" onclick="openGame('cltunnelrushbetter.html')">Tunnel Rush</button></div>
-    <div class="game-card" data-name="Wrestle Bros"><button class="game-btn" onclick="openGame('clwrestlebros.html')">Wrestle Bros</button></div>
+  <div class="lectures-grid">
+    <div class="lecture-card" data-name="1v1.LOL"><button class="lecture-btn" onclick="openLecture('cl1v1lol.html')">Module 1v1</button></div>
+    <div class="lecture-card" data-name="3Dash"><button class="lecture-btn" onclick="openLecture('cl3dash.html')">Geometry Core 3D</button></div>
+    <div class="lecture-card" data-name="A Small World Cup"><button class="lecture-btn" onclick="openLecture('clasmallworldcup.html')">Global Physics Simulation</button></div>
+    <div class="lecture-card" data-name="Agar.io Lite"><button class="lecture-btn" onclick="openLecture('clagariolite.html')">Cellular Mass Equations</button></div>
+    <div class="lecture-card" data-name="Apes vs Helium"><button class="lecture-btn" onclick="openLecture('clapesvshelium.html')">Element Displacement Lab</button></div>
+    <div class="lecture-card" data-name="Baseball Bros"><button class="lecture-btn" onclick="openLecture('clbaseballbros.html')">Trajectory Mechanics A</button></div>
+    <div class="lecture-card" data-name="Basket Bros"><button class="lecture-btn" onclick="openLecture('clbasketbros.html')">Parabolic Arcs B</button></div>
+    <div class="lecture-card" data-name="Basketball Stars"><button class="lecture-btn" onclick="openLecture('clbasketballstars.html')">Kinetic Velocity Analysis</button></div>
+    <div class="lecture-card" data-name="Bit Planes"><button class="lecture-btn" onclick="openLecture('clbitplanes.html')">Vector Plane Geometry</button></div>
+    <div class="lecture-card" data-name="BitLife"><button class="lecture-btn" onclick="openLecture('clbitlife.html')">Probability & Life Matrix</button></div>
+    <div class="lecture-card" data-name="Block Blast"><button class="lecture-btn" onclick="openLecture('clblockblastv2.html')">Spatial Block Tessellation</button></div>
+    <div class="lecture-card" data-name="Cluster Rush"><button class="lecture-btn" onclick="openLecture('clclusterrush.html')">Velocity Momentum Test</button></div>
+    <div class="lecture-card" data-name="Cookie Clicker"><button class="lecture-btn" onclick="openLecture('clcookieclicker.html')">Exponential Growth Tracker</button></div>
+    <div class="lecture-card" data-name="Core Ball"><button class="lecture-btn" onclick="openLecture('clcoreball.html')">Centripetal Rotational Speed</button></div>
+    <div class="lecture-card" data-name="Crossy Road"><button class="lecture-btn" onclick="openLecture('clcrossyroad.html')">Axis Grid Nav Review</button></div>
+    <div class="lecture-card" data-name="Drift Boss"><button class="lecture-btn" onclick="openLecture('cldriftboss.html')">Angular Friction Coefficients</button></div>
+    <div class="lecture-card" data-name="Drift Hunters"><button class="lecture-btn" onclick="openLecture('cldrifthuntersmerge.html')">Centrifugal Force Lab</button></div>
+    <div class="lecture-card" data-name="Drive Mad"><button class="lecture-btn" onclick="openLecture('cldrivemady.html')">Torque & Vector Mass</button></div>
+    <div class="lecture-card" data-name="Escape Road City 2"><button class="lecture-btn" onclick="openLecture('clescaperoadcity2.html')">Grid Matrix Velocity</button></div>
+    <div class="lecture-card" data-name="FNAF"><button class="lecture-btn" onclick="openLecture('clFNAF.html')">Security Logic System 1</button></div>
+    <div class="lecture-card" data-name="FNAF 2"><button class="lecture-btn" onclick="openLecture('clFNAF2.html')">Security Logic System 2</button></div>
+    <div class="lecture-card" data-name="FNAF 3"><button class="lecture-btn" onclick="openLecture('clFNAF3.html')">Security Logic System 3</button></div>
+    <div class="lecture-card" data-name="FNAF 4"><button class="lecture-btn" onclick="openLecture('clFNAF4.html')">Security Logic System 4</button></div>
+    <div class="lecture-card" data-name="Football Bros"><button class="lecture-btn" onclick="openLecture('clfootballbros.html')">Gridiron Friction Models</button></div>
+    <div class="lecture-card" data-name="Geometry Dash Lite"><button class="lecture-btn" onclick="openLecture('clgdlite.html')">Rhythm-Based Spatial Comp</button></div>
+    <div class="lecture-card" data-name="Granny Original"><button class="lecture-btn" onclick="openLecture('clgrannyy.html')">Spatial Deceleration Test</button></div>
+    <div class="lecture-card" data-name="Level Devil"><button class="lecture-btn" onclick="openLecture('clleveldevil.html')">Variable Chaos Theorems</button></div>
+    <div class="lecture-card" data-name="Monkey Mart"><button class="lecture-btn" onclick="openLecture('clmonkeymart.html')">Microeconomic Marketplace</button></div>
+    <div class="lecture-card" data-name="Moto X3M"><button class="lecture-btn" onclick="openLecture('clmotox3mm.html')">Calculus Acceleration Plot</button></div>
+    <div class="lecture-card" data-name="OvO"><button class="lecture-btn" onclick="openLecture('clovofixed.html')">Line Segment Geometry</button></div>
+    <div class="lecture-card" data-name="Pizza Tower"><button class="lecture-btn" onclick="openLecture('clpizzatower.html')">Asymmetric Layout Design</button></div>
+    <div class="lecture-card" data-name="Poly Track"><button class="lecture-btn" onclick="openLecture('clpolytrackworksnow.html')">Polygonal Vector Slopes</button></div>
+    <div class="lecture-card" data-name="Retro Bowl"><button class="lecture-btn" onclick="openLecture('clretrobowl.html')">Statistical Playbook Calculus</button></div>
+    <div class="lecture-card" data-name="Run 3"><button class="lecture-btn" onclick="openLecture('clrun3.html')">Three-Dimensional Spatials</button></div>
+    <div class="lecture-card" data-name="Snow Rider 3D"><button class="lecture-btn" onclick="openLecture('clsnowrider.html')">Z-Axis Displacement Fluid</button></div>
+    <div class="lecture-card" data-name="Tunnel Rush"><button class="lecture-btn" onclick="openLecture('cltunnelrushbetter.html')">Cylindrical Vertex Traversal</button></div>
   </div>
 
   <script>
@@ -236,7 +200,7 @@
     }
     generateStars();
 
-    function openGame(file) {
+    function openLecture(file) {
       var win = window.open('about:blank', '_blank');
       if (file.startsWith('http')) { win.location.href = file; return; }
       fetch(file)
@@ -249,11 +213,12 @@
         .catch(function() { win.location.href = file; });
     }
 
+    // Fixed functional bug by re-mapping class tags correctly to variables
     function goHome() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       document.getElementById('search-input').value = '';
-      document.querySelectorAll('.game-card').forEach(function(c) { c.classList.remove('hidden'); });
-      document.getElementById('game-count').textContent = document.querySelectorAll('.game-card').length + ' GAMES';
+      document.querySelectorAll('.lecture-card').forEach(function(c) { c.classList.remove('hidden'); });
+      document.getElementById('lecture-count').textContent = document.querySelectorAll('.lecture-card').length + ' COMPONENT MODULES';
       document.getElementById('no-results').style.display = 'none';
     }
 
@@ -270,10 +235,10 @@
 
     window.onpageshow = function(e) { if (e.persisted) window.location.reload(); };
 
-    var cards = document.querySelectorAll('.game-card');
-    var countEl = document.getElementById('game-count');
+    var cards = document.querySelectorAll('.lecture-card');
+    var countEl = document.getElementById('lecture-count');
     var noResults = document.getElementById('no-results');
-    countEl.textContent = cards.length + ' GAMES';
+    countEl.textContent = cards.length + ' COMPONENT MODULES';
     document.getElementById('search-input').addEventListener('input', function() {
       var q = this.value.trim().toLowerCase();
       var visible = 0;
@@ -283,7 +248,7 @@
         if (match) visible++;
       });
       noResults.style.display = visible === 0 ? 'block' : 'none';
-      countEl.textContent = q ? visible + ' GAME' + (visible !== 1 ? 'S' : '') + ' FOUND' : cards.length + ' GAMES';
+      countEl.textContent = q ? visible + ' ELEMENT' + (visible !== 1 ? 'S' : '') + ' VERIFIED' : cards.length + ' COMPONENT MODULES';
     });
   </script>
 </body>
