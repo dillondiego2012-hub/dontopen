@@ -8,18 +8,14 @@
     gtag('js', new Date());
     gtag('config', 'G-0H7S7TJBPK');
   </script>
-
   <title>STAAR Review Hub</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_folder_x16.png">
-
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: Arial, sans-serif;
       color: white;
       min-height: 100vh;
       text-align: center;
@@ -40,8 +36,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(80,0,120,0.4) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,30,100,0.4) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(80,0,120,0.55) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,30,100,0.6) 0%, transparent 55%),
         radial-gradient(ellipse 100% 100% at 50% 50%, #0d0025 0%, #020008 100%);
     }
 
@@ -52,44 +48,50 @@
       border-radius: 50%;
       animation: twinkle 3s infinite alternate;
     }
-    @keyframes twinkle { from { opacity: 0.2; } to { opacity: 0.8; } }
+    @keyframes twinkle { from { opacity: 0.3; } to { opacity: 1; } }
 
-    /* TOP NAV */
+    /* NAVIGATION & SEARCH */
     #top-nav {
       position: relative;
       z-index: 20;
       display: flex;
       justify-content: flex-end; 
-      padding: 20px 30px 0;
+      padding: 24px 36px 0;
     }
 
     #search-input {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 4px;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(180,100,255,0.45);
+      border-radius: 30px;
       color: #fff;
-      font-size: 15px;
-      padding: 8px 12px;
-      width: 220px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 14px 28px;
+      width: 300px;
       outline: none;
-      backdrop-filter: blur(5px);
+      transition: 0.3s;
+      backdrop-filter: blur(8px);
+    }
+    #search-input:focus {
+      width: 360px;
+      border-color: rgba(200,150,255,0.8);
+      box-shadow: 0 0 20px rgba(160,80,255,0.4);
     }
 
     /* HEADER */
-    #header { position: relative; z-index: 10; margin-top: 20px; }
-    #save-reminder { font-size: 22px; color: rgba(255,255,255,0.5); margin-bottom: 5px; }
-    h1 { font-size: 44px; margin-bottom: 5px; cursor: pointer; letter-spacing: -1px; }
-    #sub-head { color: #64748b; margin-bottom: 15px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; }
-    #clock { font-size: 32px; margin-bottom: 10px; font-weight: 300; opacity: 0.7; }
-    #module-count { font-size: 11px; color: rgba(148, 163, 184, 0.5); margin-bottom: 40px; }
+    #header { position: relative; z-index: 10; margin-top: 10px; }
+    #save-reminder { font-size: 30px; margin-bottom: 6px; color: rgba(255,255,255,0.75); text-shadow: 0 0 15px rgba(180,100,255,0.5); }
+    h1 { font-size: 52px; margin: 0 0 10px; text-shadow: 0 0 30px rgba(180,100,255,0.7); cursor: pointer; }
+    #clock { font-size: 40px; margin-bottom: 10px; text-shadow: 0 0 15px rgba(180,100,255,0.5); }
+    #module-count { font-size: 14px; color: rgba(200,170,255,0.5); letter-spacing: 3px; margin-bottom: 30px; }
 
-    /* MISPLACED MODULE BUTTONS */
+    /* CLEAN GRID STYLE */
     .modules-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px; 
-      padding: 0 20px 60px;
+      gap: 20px;
+      padding: 0 24px 70px;
       position: relative;
       z-index: 10;
       max-width: 1400px;
@@ -99,17 +101,17 @@
     .module-card.hidden { display: none; }
 
     .module-btn {
-      width: 330px;
-      padding: 20px 15px;
-      font-size: 17px;
-      font-weight: 600;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 3px;
+      width: 350px;
+      padding: 22px 15px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 15px;
       background: #1e293b; /* Solid Navy Blue */
-      color: #94a3b8;
+      color: white;
       cursor: pointer;
-      text-align: left;
-      transition: 0.2s;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      transition: 0.3s;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -117,30 +119,11 @@
 
     .module-btn:hover {
       background: #334155;
-      color: #f1f5f9;
-      transform: scale(1.02) !important;
-      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(255,255,255,0.25);
     }
 
-    /* Random "Misplaced" Offsets */
-    .module-card:nth-child(odd) .module-btn { transform: rotate(-0.8deg) translateY(6px); }
-    .module-card:nth-child(even) .module-btn { transform: rotate(0.5deg) translateX(-4px); }
-    .module-card:nth-child(3n) .module-btn { transform: translateY(-10px); margin-left: 10px; }
-
-    /* FOOTER */
-    footer {
-      position: relative;
-      z-index: 10;
-      margin-top: 40px;
-      padding: 60px 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      background: rgba(0,0,0,0.2);
-      color: rgba(148, 163, 184, 0.4);
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    #no-results { display: none; font-size: 18px; color: #475569; margin-top: 50px; }
+    #no-results { display: none; font-size: 24px; color: rgba(255,255,255,0.4); margin: 70px 0; z-index: 10; }
   </style>
 </head>
 <body>
@@ -148,18 +131,17 @@
   <div id="galaxy"></div>
 
   <div id="top-nav">
-    <input type="text" id="search-input" placeholder="Search resources..." autocomplete="off">
+    <input type="text" id="search-input" placeholder="🔍 Search Curriculum..." autocomplete="off">
   </div>
 
   <div id="header">
-    <div id="save-reminder">Use CTRL+D to bookmark curriculum.</div>
+    <div id="save-reminder">⌨️ CTRL+D to Save Review Hub!</div>
     <h1 onclick="location.reload()">📐 STAAR Review Hub</h1>
-    <div id="sub-head">Mathematics & Science Interactive Portal</div>
     <div id="clock"></div>
     <div id="module-count"></div>
   </div>
 
-  <div id="no-results">No curriculum matches found.</div>
+  <div id="no-results">No modules found 🔭</div>
 
   <div class="modules-grid" id="main-grid">
     <div class="module-card" data-name="Retro Bowl College"><button class="module-btn" onclick="openModule('clretrobowlcollege.html')">Advanced Playbook Calculus</button></div>
@@ -220,16 +202,10 @@
     <div class="module-card" data-name="Bit Planes"><button class="module-btn" onclick="openModule('clbitplanes.html')">Vector Plane Geometry</button></div>
   </div>
 
-  <footer>
-    <p>&copy; 2026 State Assessment & Curriculum Division. All Rights Reserved.</p>
-    <p>Notice: This portal is intended for authorized educational use only. Unauthorized access is prohibited.</p>
-    <p style="margin-top: 10px; opacity: 0.5;">TEKS Compliance ID: TX-7702-MATH-HUB | Server: US-CENTRAL-04</p>
-  </footer>
-
   <script>
     function generateStars() {
       const galaxy = document.getElementById('galaxy');
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 150; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         star.style.left = Math.random() * 100 + '%';
@@ -251,16 +227,16 @@
 
     function updateClock() {
       const now = new Date();
-      let h = now.getHours(), m = now.getMinutes();
+      let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
       const ampm = h >= 12 ? 'PM' : 'AM';
       h = h % 12 || 12;
-      document.getElementById('clock').innerText = `${h<10?'0':''}${h}:${m<10?'0':''}${m} ${ampm}`;
+      document.getElementById('clock').innerText = `${h<10?'0':''}${h}:${m<10?'0':''}${m}:${s<10?'0':''}${s} ${ampm}`;
     }
     setInterval(updateClock, 1000);
     updateClock();
 
     const cards = document.querySelectorAll('.module-card');
-    document.getElementById('module-count').textContent = `DB_LINK_${cards.length}_UNITS_SYNCHRONIZED`;
+    document.getElementById('module-count').textContent = `${cards.length} MODULES LOADED`;
 
     document.getElementById('search-input').addEventListener('input', function() {
       const q = this.value.toLowerCase();
@@ -271,11 +247,8 @@
         if (match) visible++;
       });
       document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+      document.getElementById('module-count').textContent = `${visible} MODULES LOADED`;
     });
-
-    // Sneaky tab title changer
-    window.onblur = function () { document.title = "My Drive - Google Drive"; }
-    window.onfocus = function () { document.title = "STAAR Review Hub"; }
   </script>
 </body>
 </html>
