@@ -10,105 +10,72 @@
   </script>
   <title>Diego's/Tommy's-Games</title>
   <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       color: white;
-      min-height: 100vh;
-      text-align: center;
-      overflow-x: hidden;
       background: #0a0015;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     /* ═══════════════════════════════════════
-       GALAXY BACKGROUND
+       FIXED GALAXY BACKGROUND
     ═══════════════════════════════════════ */
     #galaxy {
       position: fixed;
       inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    #galaxy::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(80,0,120,0.55) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,30,100,0.6) 0%, transparent 55%),
-        radial-gradient(ellipse 100% 100% at 50% 50%, #0d0025 0%, #020008 100%);
-    }
-
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 3s infinite alternate;
-    }
-    @keyframes twinkle {
-      from { opacity: 0.3; }
-      to   { opacity: 1; }
+      z-index: -1;
+      background: 
+        radial-gradient(ellipse at 20% 40%, rgba(80,0,120,0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(0,30,100,0.4) 0%, transparent 60%),
+        #0a0015;
     }
 
     /* ═══════════════════════════════════════
-       TOP NAV & SEARCH
+       NAV & SEARCH
     ═══════════════════════════════════════ */
     #top-nav {
       position: relative;
-      z-index: 20;
+      z-index: 10;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 20px 40px;
-      width: 100%;
     }
 
     .nav-links { display: flex; gap: 15px; }
 
     #request-link {
-      font-size: 16px;
-      font-weight: bold;
       color: #d4aaff;
       text-decoration: none;
       background: rgba(120,0,255,0.15);
       border: 1px solid rgba(180,100,255,0.3);
-      border-radius: 20px;
       padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
       transition: 0.3s;
       backdrop-filter: blur(5px);
     }
     #request-link:hover {
       background: rgba(120,0,255,0.3);
-      box-shadow: 0 0 15px rgba(160,80,255,0.4);
       transform: translateY(-2px);
     }
 
     #search-input {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.08);
       border: 2px solid rgba(180,100,255,0.3);
       border-radius: 25px;
-      color: #fff;
-      font-size: 18px;
+      color: white;
       padding: 12px 25px;
       width: 280px;
       outline: none;
       transition: 0.3s;
-      backdrop-filter: blur(10px);
     }
-    #search-input:focus {
-      width: 350px;
-      border-color: rgba(200,150,255,0.7);
-      box-shadow: 0 0 20px rgba(160,80,255,0.3);
-    }
+    #search-input:focus { width: 350px; border-color: rgba(200,150,255,0.6); }
 
     /* ═══════════════════════════════════════
        HEADER
@@ -116,17 +83,176 @@
     #header {
       position: relative;
       z-index: 10;
-      margin: 20px 0;
+      text-align: center;
+      margin: 30px 0;
     }
 
-    #save-reminder {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: rgba(255,255,255,0.7);
-      text-shadow: 0 0 10px rgba(180,100,255,0.5);
+    h1 { font-size: 50px; margin-bottom: 10px; cursor: pointer; text-shadow: 0 0 20px purple; }
+    #clock { font-size: 36px; color: #d4aaff; margin-bottom: 5px; }
+    #game-count { font-size: 14px; color: rgba(255,255,255,0.4); letter-spacing: 3px; }
+
+    /* ═══════════════════════════════════════
+       GAME BUTTONS (THE GRADIENT LOOK)
+    ═══════════════════════════════════════ */
+    .games-grid {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    h1 {
-      font-size: 48px;
+    .game-btn {
+      width: 290px;
+      padding: 22px 15px;
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
       cursor: pointer;
-      text-shadow: 0 0 30px rgba
+      border-radius: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      /* Deep Purple Gradient */
+      background: linear-gradient(145deg, #2a0a4d, #1a0533);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .game-btn:hover {
+      transform: translateY(-8px) scale(1.03);
+      background: linear-gradient(145deg, #3d0f6e, #25084a);
+      border-color: rgba(180, 100, 255, 0.8);
+      box-shadow: 0 0 25px rgba(160, 80, 255, 0.6);
+    }
+
+    .game-card.hidden { display: none; }
+    #no-results { text-align: center; display: none; margin-top: 50px; font-size: 20px; color: #666; }
+  </style>
+</head>
+<body>
+
+  <div id="galaxy"></div>
+
+  <div id="top-nav">
+    <div class="nav-links">
+      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/forms/d/e/1FAIpQLSc0wJjFKWJRE928DVr3Pj-RWPKy-75QgNIjFQIMUyQ76MGzLQ/viewform'); return false;">📬 Request Games</a>
+      <a id="request-link" href="#" onclick="openGame('https://docs.google.com/spreadsheets/d/1c08AajavNjkT8PnXe4whIE6DuXj6iXmi6Wzkn1tJ-E0/edit'); return false;">📋 List</a>
+    </div>
+    <input type="text" id="search-input" placeholder="🔍 Search games...">
+  </div>
+
+  <div id="header">
+    <h1 onclick="location.reload()">🎮 Diego's/Tommy's Games</h1>
+    <div id="clock">00:00:00 AM</div>
+    <div id="game-count">0 GAMES</div>
+  </div>
+
+  <div id="no-results">No games found 🔭</div>
+
+  <div class="games-grid">
+    <div class="game-card" data-name="1v1.LOL"><button class="game-btn" onclick="openGame('cl1v1lol.html')">1v1.LOL</button></div>
+    <div class="game-card" data-name="3Dash"><button class="game-btn" onclick="openGame('cl3dash.html')">3Dash</button></div>
+    <div class="game-card" data-name="A Small World Cup"><button class="game-btn" onclick="openGame('clasmallworldcup.html')">A Small World Cup</button></div>
+    <div class="game-card" data-name="Agar.io Lite"><button class="game-btn" onclick="openGame('clagariolite.html')">Agar.io Lite</button></div>
+    <div class="game-card" data-name="Apes vs Helium"><button class="game-btn" onclick="openGame('clapesvshelium.html')">Apes vs Helium</button></div>
+    <div class="game-card" data-name="Baseball Bros"><button class="game-btn" onclick="openGame('clbaseballbros.html')">Baseball Bros</button></div>
+    <div class="game-card" data-name="Basket Bros"><button class="game-btn" onclick="openGame('clbasketbros.html')">Basket Bros</button></div>
+    <div class="game-card" data-name="Basketball Stars"><button class="game-btn" onclick="openGame('clbasketballstars.html')">Basketball Stars</button></div>
+    <div class="game-card" data-name="Bit Planes"><button class="game-btn" onclick="openGame('clbitplanes.html')">Bit Planes</button></div>
+    <div class="game-card" data-name="BitLife"><button class="game-btn" onclick="openGame('clbitlife.html')">BitLife</button></div>
+    <div class="game-card" data-name="Block Blast"><button class="game-btn" onclick="openGame('clblockblastv2.html')">Block Blast</button></div>
+    <div class="game-card" data-name="Cluster Rush"><button class="game-btn" onclick="openGame('clclusterrush.html')">Cluster Rush</button></div>
+    <div class="game-card" data-name="Cookie Clicker"><button class="game-btn" onclick="openGame('clcookieclicker.html')">Cookie Clicker</button></div>
+    <div class="game-card" data-name="Core Ball"><button class="game-btn" onclick="openGame('clcoreball.html')">Core Ball</button></div>
+    <div class="game-card" data-name="Crazy Cattle 3D"><button class="game-btn" onclick="openGame('clcrazycattle3d.html')">Crazy Cattle 3D</button></div>
+    <div class="game-card" data-name="Crossy Road"><button class="game-btn" onclick="openGame('clcrossyroad.html')">Crossy Road</button></div>
+    <div class="game-card" data-name="Drift Boss"><button class="game-btn" onclick="openGame('cldriftboss.html')">Drift Boss</button></div>
+    <div class="game-card" data-name="Drift Hunters"><button class="game-btn" onclick="openGame('cldrifthuntersmerge.html')">Drift Hunters</button></div>
+    <div class="game-card" data-name="Drive Mad"><button class="game-btn" onclick="openGame('cldrivemady.html')">Drive Mad</button></div>
+    <div class="game-card" data-name="Escape Road City 2"><button class="game-btn" onclick="openGame('clescaperoadcity2.html')">Escape Road City 2</button></div>
+    <div class="game-card" data-name="FNAF"><button class="game-btn" onclick="openGame('clFNAF.html')">FNAF</button></div>
+    <div class="game-card" data-name="FNAF 2"><button class="game-btn" onclick="openGame('clFNAF2.html')">FNAF 2</button></div>
+    <div class="game-card" data-name="FNAF 3"><button class="game-btn" onclick="openGame('clFNAF3.html')">FNAF 3</button></div>
+    <div class="game-card" data-name="FNAF 4"><button class="game-btn" onclick="openGame('clFNAF4.html')">FNAF 4</button></div>
+    <div class="game-card" data-name="Football Bros"><button class="game-btn" onclick="openGame('clfootballbros.html')">Football Bros</button></div>
+    <div class="game-card" data-name="GD SubZero"><button class="game-btn" onclick="openGame('clgdsubzero.html')">GD SubZero</button></div>
+    <div class="game-card" data-name="GD World"><button class="game-btn" onclick="openGame('clGeometryDashWorld.html')">GD World</button></div>
+    <div class="game-card" data-name="Geometry Dash Lite"><button class="game-btn" onclick="openGame('clgdlite.html')">Geometry Dash Lite</button></div>
+    <div class="game-card" data-name="Granny 2"><button class="game-btn" onclick="openGame('clgranny22.html')">Granny 2</button></div>
+    <div class="game-card" data-name="Granny 3"><button class="game-btn" onclick="openGame('clgranny3.html')">Granny 3</button></div>
+    <div class="game-card" data-name="Granny Original"><button class="game-btn" onclick="openGame('clgrannyy.html')">Granny Original</button></div>
+    <div class="game-card" data-name="Gun Spin"><button class="game-btn" onclick="openGame('clgunspin.html')">Gun Spin</button></div>
+    <div class="game-card" data-name="Karate Bros"><button class="game-btn" onclick="openGame('clkaratebros.html')">Karate Bros</button></div>
+    <div class="game-card" data-name="Kart Bros"><button class="game-btn" onclick="openGame('clkartbros.html')">Kart Bros</button></div>
+    <div class="game-card" data-name="Learn to Fly"><button class="game-btn" onclick="openGame('cllearntofly.html')">Learn to Fly</button></div>
+    <div class="game-card" data-name="Level Devil"><button class="game-btn" onclick="openGame('clleveldevil.html')">Level Devil</button></div>
+    <div class="game-card" data-name="Monkey Mart"><button class="game-btn" onclick="openGame('clmonkeymart.html')">Monkey Mart</button></div>
+    <div class="game-card" data-name="Moto X3M"><button class="game-btn" onclick="openGame('clmotox3mm.html')">Moto X3M</button></div>
+    <div class="game-card" data-name="OvO"><button class="game-btn" onclick="openGame('clovofixed.html')">OvO</button></div>
+    <div class="game-card" data-name="Pizza Tower"><button class="game-btn" onclick="openGame('clpizzatower.html')">Pizza Tower</button></div>
+    <div class="game-card" data-name="Poly Track"><button class="game-btn" onclick="openGame('clpolytrackworksnow.html')">Poly Track</button></div>
+    <div class="game-card" data-name="Retro Bowl"><button class="game-btn" onclick="openGame('clretrobowl.html')">Retro Bowl</button></div>
+    <div class="game-card" data-name="Retro Bowl College"><button class="game-btn" onclick="openGame('clretrobowlcollege.html')">Retro Bowl College</button></div>
+    <div class="game-card" data-name="Rocket League"><button class="game-btn" onclick="openGame('clrocketleague.html')">Rocket League</button></div>
+    <div class="game-card" data-name="Rooftop Snipers 2"><button class="game-btn" onclick="openGame('clrooftopsnipers2.html')">Rooftop Snipers 2</button></div>
+    <div class="game-card" data-name="Run 3"><button class="game-btn" onclick="openGame('clrun3.html')">Run 3</button></div>
+    <div class="game-card" data-name="Snow Rider 3D"><button class="game-btn" onclick="openGame('clsnowrider.html')">Snow Rider 3D</button></div>
+    <div class="game-card" data-name="Soccer Bros"><button class="game-btn" onclick="openGame('clsoccerbros.html')">Soccer Bros</button></div>
+    <div class="game-card" data-name="Soccer Random"><button class="game-btn" onclick="openGame('clsoccerrandomgood.html')">Soccer Random</button></div>
+    <div class="game-card" data-name="Space Waves"><button class="game-btn" onclick="openGame('clspacewaves.html')">Space Waves</button></div>
+    <div class="game-card" data-name="Subway Surfers Houston"><button class="game-btn" onclick="openGame('clsubwaysurfershouston.html')">Subway Surfers Houston</button></div>
+    <div class="game-card" data-name="Super Liquid Soccer"><button class="game-btn" onclick="openGame('clsuperliquidsoccer.html')">Super Liquid Soccer</button></div>
+    <div class="game-card" data-name="Survival Race"><button class="game-btn" onclick="openGame('clcarkingarena.html')">Survival Race</button></div>
+    <div class="game-card" data-name="Tiny Fishing"><button class="game-btn" onclick="openGame('cltinyfishing.html')">Tiny Fishing</button></div>
+    <div class="game-card" data-name="Tunnel Rush"><button class="game-btn" onclick="openGame('cltunnelrushbetter.html')">Tunnel Rush</button></div>
+    <div class="game-card" data-name="Wrestle Bros"><button class="game-btn" onclick="openGame('clwrestlebros.html')">Wrestle Bros</button></div>
+  </div>
+
+  <script>
+    function openGame(file) {
+      const win = window.open('about:blank', '_blank');
+      if (file.startsWith('http')) {
+        win.location.href = file;
+        return;
+      }
+      fetch(file)
+        .then(r => r.text())
+        .then(html => {
+          win.document.open();
+          win.document.write(html);
+          win.document.close();
+        })
+        .catch(() => win.location.href = file);
+    }
+
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').innerText = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    const searchInput = document.getElementById('search-input');
+    const cards = document.querySelectorAll('.game-card');
+    const countEl = document.getElementById('game-count');
+    const noResults = document.getElementById('no-results');
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.toLowerCase();
+      let visible = 0;
+      cards.forEach(c => {
+        const match = c.dataset.name.toLowerCase().includes(q);
+        c.classList.toggle('hidden', !match);
+        if (match) visible++;
+      });
+      countEl.innerText = visible + " GAMES LOADED";
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    });
+
+    countEl.innerText = cards.length + " GAMES LOADED";
+  </script>
+</body>
+</html>
