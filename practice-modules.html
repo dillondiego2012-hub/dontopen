@@ -150,7 +150,7 @@
       font-weight: bold;
       border: none;
       border-radius: 15px;
-      background: #1e293b; 
+      background: #1e293b; /* Solid Navy Blue from your request */
       color: white;
       cursor: pointer;
       box-shadow: 0 0 20px rgba(255,255,255,0.1);
@@ -192,7 +192,7 @@
 
   <div id="no-results">No modules found 🔭</div>
 
-  <div class="modules-grid" id="main-grid">
+  <div class="modules-grid">
     <div class="module-card" data-name="1v1.LOL"><button class="module-btn" onclick="openModule('cl1v1lol.html')">Algebraic Logic M1</button></div>
     <div class="module-card" data-name="3Dash"><button class="module-btn" onclick="openModule('cl3dash.html')">Geometry Core 3D</button></div>
     <div class="module-card" data-name="A Small World Cup"><button class="module-btn" onclick="openModule('clasmallworldcup.html')">Global Physics Simulation</button></div>
@@ -264,17 +264,6 @@
       }
     }
     generateStars();
-
-    // Shuffle Function
-    function shuffleModules() {
-      var grid = document.getElementById('main-grid');
-      var modules = Array.from(grid.getElementsByClassName('module-card'));
-      for (var i = modules.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        grid.appendChild(modules[j]);
-      }
-    }
-    shuffleModules();
 
     function openModule(file) {
       var win = window.open('about:blank', '_blank');
