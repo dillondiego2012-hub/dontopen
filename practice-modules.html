@@ -8,56 +8,56 @@
     gtag('js', new Date());
     gtag('config', 'G-0H7S7TJBPK');
   </script>
-  <title>STAAR Mathematics Review Directory</title>
+  <title>STAAR Review Hub</title>
   <meta charset="UTF-8">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       color: white;
       min-height: 100vh;
       text-align: center;
-      overflow-x: hidden;
       background: #0a0015;
+      overflow-x: hidden;
     }
-    #galaxy { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+    
+    #galaxy { position: fixed; inset: 0; z-index: 0; }
     #galaxy::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(80,0,120,0.55) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,30,100,0.6) 0%, transparent 55%),
-        radial-gradient(ellipse 70% 40% at 50% 80%, rgba(60,0,80,0.4) 0%, transparent 60%),
-        radial-gradient(ellipse 100% 100% at 50% 50%, #0d0025 0%, #020008 100%);
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, #1a0033 0%, #020008 100%);
     }
-    .star {
-      position: absolute; width: 2px; height: 2px;
-      background: white; border-radius: 50%;
-      animation: twinkle 3s infinite alternate;
-    }
-    @keyframes twinkle { from { opacity: 0.3; } to { opacity: 1; } }
 
-    #header { position: relative; z-index: 10; padding-top: 40px; }
-    h1 { font-size: 42px; text-shadow: 0 0 20px rgba(180,100,255,0.7); margin-bottom: 10px; }
-    #clock { font-size: 32px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+    .star {
+      position: absolute; background: white; border-radius: 50%;
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+      animation: shimmer var(--duration) infinite alternate;
+    }
+
+    @keyframes shimmer { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+    #header { position: relative; z-index: 10; padding: 40px 0; }
+    h1 { font-size: 44px; text-shadow: 0 0 20px #8b5cf6; margin-bottom: 10px; }
+    #clock { font-size: 24px; opacity: 0.7; margin-bottom: 20px; }
 
     .lectures-grid {
       display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 15px; padding: 20px;
+      gap: 15px; padding: 0 20px 100px;
       position: relative; z-index: 10;
-      max-width: 1200px; margin: 0 auto;
+      max-width: 1400px; margin: 0 auto;
     }
-    .lecture-card { width: 280px; }
+
     .lecture-btn {
-      width: 100%; padding: 20px; font-size: 18px; border: 1px solid rgba(180,100,255,0.3);
-      border-radius: 12px; background: rgba(30, 41, 59, 0.8); color: white;
-      cursor: pointer; transition: 0.3s; backdrop-filter: blur(5px);
+      width: 260px; padding: 20px; font-size: 16px;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 12px; background: rgba(255, 255, 255, 0.05);
+      color: white; cursor: pointer; transition: 0.3s;
+      backdrop-filter: blur(8px);
     }
+
     .lecture-btn:hover {
-      background: rgba(51, 65, 85, 0.9); transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(180,100,255,0.5);
-      border-color: rgba(180,100,255,0.8);
+      background: rgba(139, 92, 246, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
     }
   </style>
 </head>
@@ -66,10 +66,100 @@
   <div id="galaxy"></div>
 
   <div id="header">
-    <h1>📐 Curriculum Component Hub</h1>
+    <h1>📐 STAAR Review Hub</h1>
     <div id="clock"></div>
   </div>
 
   <div class="lectures-grid">
-    <div class="lecture-card"><button class="lecture-btn" onclick="openModule('module1.html')">Algebraic Logic M1</button></div>
-    <div class="lecture-card"><button class="lecture-btn" onclick="openModule('module2.html')">Geometric Core 3D</button>
+    <button class="lecture-btn" onclick="openModule('module1.html')">Algebraic Logic M1</button>
+    <button class="lecture-btn" onclick="openModule('module2.html')">Geometry Core 3D</button>
+    <button class="lecture-btn" onclick="openModule('module3.html')">Global Physics Simulation</button>
+    <button class="lecture-btn" onclick="openModule('module4.html')">Cellular Mass Equations</button>
+    <button class="lecture-btn" onclick="openModule('module5.html')">Element Displacement Lab</button>
+    <button class="lecture-btn" onclick="openModule('module6.html')">Trajectory Mechanics A</button>
+    <button class="lecture-btn" onclick="openModule('module7.html')">Parabolic Arcs B</button>
+    <button class="lecture-btn" onclick="openModule('module8.html')">Kinetic Velocity Analysis</button>
+    <button class="lecture-btn" onclick="openModule('module9.html')">Vector Plane Geometry</button>
+    <button class="lecture-btn" onclick="openModule('module10.html')">Probability Matrix</button>
+    <button class="lecture-btn" onclick="openModule('module11.html')">Spatial Tessellation</button>
+    <button class="lecture-btn" onclick="openModule('module12.html')">Velocity Momentum Test</button>
+    <button class="lecture-btn" onclick="openModule('module13.html')">Exponential Growth Tracker</button>
+    <button class="lecture-btn" onclick="openModule('module14.html')">Centripetal Speed Lab</button>
+    <button class="lecture-btn" onclick="openModule('module15.html')">Dynamic 3D Vector Models</button>
+    <button class="lecture-btn" onclick="openModule('module16.html')">Axis Grid Nav Review</button>
+    <button class="lecture-btn" onclick="openModule('module17.html')">Angular Friction Coefficients</button>
+    <button class="lecture-btn" onclick="openModule('module18.html')">Centrifugal Force Lab</button>
+    <button class="lecture-btn" onclick="openModule('module19.html')">Torque & Vector Mass</button>
+    <button class="lecture-btn" onclick="openModule('module20.html')">Grid Matrix Velocity</button>
+    <button class="lecture-btn" onclick="openModule('module21.html')">Security Logic System 1</button>
+    <button class="lecture-btn" onclick="openModule('module22.html')">Security Logic System 2</button>
+    <button class="lecture-btn" onclick="openModule('module23.html')">Security Logic System 3</button>
+    <button class="lecture-btn" onclick="openModule('module24.html')">Security Logic System 4</button>
+    <button class="lecture-btn" onclick="openModule('module25.html')">Gridiron Friction Models</button>
+    <button class="lecture-btn" onclick="openModule('module26.html')">SubZero Angular Traversal</button>
+    <button class="lecture-btn" onclick="openModule('module27.html')">Global Vertex Matrix</button>
+    <button class="lecture-btn" onclick="openModule('module28.html')">Spatial Comp Analysis</button>
+    <button class="lecture-btn" onclick="openModule('module29.html')">Spatial Deceleration II</button>
+    <button class="lecture-btn" onclick="openModule('module30.html')">Spatial Deceleration III</button>
+    <button class="lecture-btn" onclick="openModule('module31.html')">Spatial Deceleration Test</button>
+    <button class="lecture-btn" onclick="openModule('module32.html')">Rotational Recoil Torque</button>
+    <button class="lecture-btn" onclick="openModule('module33.html')">Impact Mechanics Alpha</button>
+    <button class="lecture-btn" onclick="openModule('module34.html')">Centripetal Velocity Track</button>
+    <button class="lecture-btn" onclick="openModule('module35.html')">Aerodynamic Lift Equations</button>
+    <button class="lecture-btn" onclick="openModule('module36.html')">Variable Chaos Theorems</button>
+    <button class="lecture-btn" onclick="openModule('module37.html')">Marketplace Economics</button>
+    <button class="lecture-btn" onclick="openModule('module38.html')">Calculus Acceleration Plot</button>
+    <button class="lecture-btn" onclick="openModule('module39.html')">Line Segment Geometry</button>
+    <button class="lecture-btn" onclick="openModule('module40.html')">Asymmetric Layout Design</button>
+    <button class="lecture-btn" onclick="openModule('module41.html')">Polygonal Vector Slopes</button>
+    <button class="lecture-btn" onclick="openModule('module42.html')">Statistical Playbook Calculus</button>
+    <button class="lecture-btn" onclick="openModule('module43.html')">Advanced Playbook Calculus</button>
+    <button class="lecture-btn" onclick="openModule('module44.html')">Spherical Impulse Collision</button>
+    <button class="lecture-btn" onclick="openModule('module45.html')">Two-Dimensional Angle Plots</button>
+    <button class="lecture-btn" onclick="openModule('module46.html')">Three-Dimensional Spatials</button>
+    <button class="lecture-btn" onclick="openModule('module47.html')">Z-Axis Displacement Fluid</button>
+    <button class="lecture-btn" onclick="openModule('module48.html')">Friction Coefficient Plots</button>
+    <button class="lecture-btn" onclick="openModule('module49.html')">Stochastic Physics Model</button>
+    <button class="lecture-btn" onclick="openModule('module50.html')">Frequency Trajectory</button>
+    <button class="lecture-btn" onclick="openModule('module51.html')">Linear Velocity Grid Track</button>
+    <button class="lecture-btn" onclick="openModule('module52.html')">Fluid Kinematics Simulation</button>
+    <button class="lecture-btn" onclick="openModule('module53.html')">Kinetic Impact Endurance</button>
+    <button class="lecture-btn" onclick="openModule('module54.html')">Sub-Surface Probability Loops</button>
+    <button class="lecture-btn" onclick="openModule('module55.html')">Cylindrical Vertex Traversal</button>
+    <button class="lecture-btn" onclick="openModule('module56.html')">Center of Mass Leverages</button>
+  </div>
+
+  <script>
+    const galaxy = document.getElementById('galaxy');
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = Math.random() * 3 + 'px';
+      star.style.width = size;
+      star.style.height = size;
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+      galaxy.appendChild(star);
+    }
+
+    function openModule(file) {
+      const win = window.open('about:blank', '_blank');
+      fetch(file)
+        .then(r => r.text())
+        .then(html => {
+          win.document.open();
+          win.document.write(html);
+          win.document.close();
+        })
+        .catch(() => { win.location.href = file; });
+    }
+
+    function updateClock() {
+      document.getElementById('clock').innerText = new Date().toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
